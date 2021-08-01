@@ -1,6 +1,6 @@
 /*
-ask user to enter a binary digit
-ascertain the length of the binary digit entered by the user
+ask user to enter a binary integer
+ascertain the length of the binary integer entered by the user
 take each digit and check to see if it is a valid binary digit
     if all digits are valid binary digits, 
         convert inputed binary integer to decimal and display result to user.
@@ -17,7 +17,7 @@ public class BinaryToDecimal {
         double singleBinaryDigit;
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter a Binary Digit:");
+        System.out.println("Enter a Binary Integer:");
         int userInput = scanner.nextInt();
 
         String userInputAsAString = String.valueOf(userInput);
