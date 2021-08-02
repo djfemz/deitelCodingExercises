@@ -55,15 +55,8 @@ public class DataEncryption {
 
         }
 
-        System.out.printf("first digit is: %d%nsecond digit is %d%nthird digit is: %d%nfourth digit is: %d%n", encryptedFirstDigit, encryptedSecondDigit, encryptedThirdDigit, encryptedFourthDigit);
         System.out.println(String.valueOf(encryptedThirdDigit)+encryptedFourthDigit+encryptedFirstDigit+encryptedSecondDigit);
     }
 }
 
 
-/*
-        
-       
-
-       
-    */

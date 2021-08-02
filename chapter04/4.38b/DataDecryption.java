@@ -66,7 +66,6 @@ public class DataDecryption {
             }
 
         }
-
         System.out.println(String.valueOf(decryptedThirdDigit)+decryptedFourthDigit+decryptedFirstDigit+decryptedSecondDigit);
         scanner.close();
 
