@@ -9,35 +9,44 @@
  */
 
  import java.util.Scanner;
+ 
 
 public class DataDecryption {
     public static void main(String[] args) {
-        int userInput = 0;
+
+
+         int decryptedFirstDigit=0;
+         int decryptedSecondDigit=0;
+         int decryptedThirdDigit=0;
+         int decryptedFourthDigit=0;
+        
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Data to decrypt:");
-        userInput = scanner.nextInt();
-        String userInputAsAString=String.valueOf(userInput);
+        String userInput = scanner.next();
 
-        int decryptedFirstDigit=0;
-        int decryptedSecondDigit=0;
-        int decryptedThirdDigit=0;
-        int decryptedFourthDigit=0;
-
-        while (userInputAsAString.length()!=4){
+        while (userInput.length()!=4){
             System.out.println("Warning: Invalid Integer");
             System.out.println("Enter Data to decrypt:");
-            userInput = scanner.nextInt();
-            userInputAsAString=String.valueOf(userInput);
+            userInput = scanner.next();
         }
 
-        int firstDigitBeforeDecryption = userInput/1000;
-        int secondDigitBeforeDecryption = (userInput%1000)/100; 
-        int thirdDigitBeforeDecryption = (userInput%1000%100)/10;
-        int fourthDigitBeforeDecryption = (userInput%10)/1;
+        char firstInputAsChar = userInput.charAt(0);
+        char secondInputAsChar = userInput.charAt(1);
+        char thirdInputAsChar = userInput.charAt(2);
+        char fourthInputAsChar = userInput.charAt(3);
 
 
-        for (int counter = 0; counter <userInputAsAString.length(); counter++){
-            if (counter == 0){
+        int firstDigitBeforeDecryption = Integer.parseInt(String.valueOf(firstInputAsChar));
+        int secondDigitBeforeDecryption = Integer.parseInt(String.valueOf(secondInputAsChar)); 
+        int thirdDigitBeforeDecryption = Integer.parseInt(String.valueOf(thirdInputAsChar));
+        int fourthDigitBeforeDecryption = Integer.parseInt(String.valueOf(fourthInputAsChar));
+
+        for (int counter = 0; counter <userInput.length(); counter++){
+            if (firstDigitBeforeDecryption==0){
+               decryptedFirstDigit= (firstDigitBeforeDecryption + 10) -7;
+            }
+
+            if (counter == 0 && firstDigitBeforeDecryption !=0){
                  decryptedFirstDigit = (firstDigitBeforeDecryption+10) - 7;
                  if (decryptedFirstDigit > 10){
                     decryptedFirstDigit = decryptedFirstDigit - 10;
@@ -66,7 +75,7 @@ public class DataDecryption {
             }
 
         }
-        System.out.println(String.valueOf(decryptedThirdDigit)+decryptedFourthDigit+decryptedFirstDigit+decryptedSecondDigit);
+        System.out.println("the decrypteed value is:" + String.valueOf(decryptedThirdDigit)+decryptedFourthDigit+decryptedFirstDigit+decryptedSecondDigit);
         scanner.close();
 
     }

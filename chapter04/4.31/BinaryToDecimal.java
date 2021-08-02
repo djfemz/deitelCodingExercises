@@ -25,11 +25,12 @@ public class BinaryToDecimal {
 
         int counter=0;
         while (counter < binaryDigitLength) {
-            double counterAsDouble = counter+1;
-            singleBinaryDigit= (userInput%Math.pow(divisor, counterAsDouble))/(Math.pow(divisor, counter));
+            singleBinaryDigit= (userInput%Math.pow(divisor, (counter+1)))/(Math.pow(divisor, counter));
             int newDigit = (int)singleBinaryDigit;
+            
             if (newDigit==0||newDigit==1){
                 sum+=newDigit*Math.pow(2, counter);
+
             }else{
                 System.out.println("invalid binary digit entered");
                 System.exit(1);
