@@ -1,9 +1,8 @@
 /**
  * collect a number from the user
  * divide the number by every number between one and itself 
- *      all numbers between one and the user input which divide the number without leaving a remainder are outputed as multiples of the number
- *  if there aren't any numbers that divide the number between one and the user input
- *      tell the user that the number is a prime number and has only one and itself as multiples
+ *      all numbers between one and the user input which divide the number without leaving a remainder are outputed as factors of the number
+ *  
  */
 import java.util.Scanner;
 
