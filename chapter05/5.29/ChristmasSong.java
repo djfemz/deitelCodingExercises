@@ -72,7 +72,7 @@ public class ChristmasSong {
                 break;
 
                 case 12:
-                System.out.println("On the twelvth day Of Christmas my true love sent to me:");
+                System.out.println("On the twelfth day Of Christmas my true love sent to me:");
                 break;
             
                 default:
