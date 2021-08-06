@@ -29,50 +29,50 @@ public class ChristmasSong {
         while (counter <13){
             switch (counter) {
                 case 1:
-                System.out.println("On the first day Of Christmas my true love said to me:");
+                System.out.println("On the first day Of Christmas my true love sent to me:");
                 break;
                 case 2:
-                System.out.println("On the second day Of Christmas my true love said to me:");
+                System.out.println("On the second day Of Christmas my true love sent to me:");
                 break;
 
                 case 3:
-                System.out.println("On the third day Of Christmas my true love said to me:");
+                System.out.println("On the third day Of Christmas my true love sent to me:");
                 break;
 
                 case 4:
-                System.out.println("On the fourth day Of Christmas my true love said to me:");
+                System.out.println("On the fourth day Of Christmas my true love sent to me:");
                 break;
 
                 case 5:
-                System.out.println("On the fifth day Of Christmas my true love said to me:");
+                System.out.println("On the fifth day Of Christmas my true love sent to me:");
                 break;
 
                 case 6:
-                System.out.println("On the sixth day Of Christmas my true love said to me:");
+                System.out.println("On the sixth day Of Christmas my true love sent to me:");
                 break;
 
                 case 7:
-                System.out.println("On the seventh day Of Christmas my true love said to me:");
+                System.out.println("On the seventh day Of Christmas my true love sent to me:");
                 break;
 
                 case 8:
-                System.out.println("On the eight day Of Christmas my true love said to me:");
+                System.out.println("On the eight day Of Christmas my true love sent to me:");
                 break;
 
                 case 9:
-                System.out.println("On the ninth day Of Christmas my true love said to me:");
+                System.out.println("On the ninth day Of Christmas my true love sent to me:");
                 break;
 
                 case 10:
-                System.out.println("On the tenth day Of Christmas my true love said to me:");
+                System.out.println("On the tenth day Of Christmas my true love sent to me:");
                 break;
 
                 case 11:
-                System.out.println("On the eleventh day Of Christmas my true love said to me:");
+                System.out.println("On the eleventh day Of Christmas my true love sent to me:");
                 break;
 
                 case 12:
-                System.out.println("On the twelvth day Of Christmas my true love said to me:");
+                System.out.println("On the twelvth day Of Christmas my true love sent to me:");
                 break;
             
                 default:
