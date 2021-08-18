@@ -1,9 +1,9 @@
 public class PerfectFactor {
     public static boolean isPerfect(int number){
         int sum = 0;
-        for(int i=1; i<number;i++){
-            if (number%i==0){
-                sum+=i;
+        for(int counter=1; counter<number;counter++){
+            if (number%counter==0){
+                sum+=counter;
             }  
         }
         if (sum==number){
