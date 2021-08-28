@@ -140,7 +140,9 @@ public class Main {
                         }
                     }
                     case 8 -> System.out.println("Prepaid credit:#10000");
+                    
                 }
+                
             case 5:
                 System.out.println(NokiaThirtyThreeTen.tones());
                 userInput = scanner.nextInt();
