@@ -34,5 +34,7 @@ public class Main {
 
         Student.calculateLowestPerSubjectOf(studentGrades, numberOfSubjectsOffered, numberOfStudentsInClass);
 
+        Student.calculateAveragePerSubjectOf(studentGrades, numberOfSubjectsOffered, numberOfStudentsInClass);
+
     }
 }

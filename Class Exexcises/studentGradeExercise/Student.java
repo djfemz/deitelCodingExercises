@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Student{
   
@@ -158,7 +158,32 @@ public class Student{
         System.out.println("the overall lowest scoring student is student" + " " + (indexOfOverallLowestScoringStudent+1));
     }
 
-    public static void calculateAveragePerSubjectOf(int[][] studentTotals) {
-        
+    public static void calculateAveragePerSubjectOf(int[][] studentTotals, int numberOfSubjects, int numberOfStudents) {
+            int[] subjectTotals = new int[numberOfSubjects];
+            for (int subjectIndex = 0; subjectIndex < numberOfSubjects; subjectIndex++) {
+                int totalPerSubject=0;
+                double subjectAverage;
+                for (int studentIndex = 0; studentIndex < numberOfStudents; studentIndex++) {
+                    totalPerSubject+=studentTotals[studentIndex][subjectIndex];
+                }
+                subjectTotals[subjectIndex] = totalPerSubject;
+                subjectAverage = (totalPerSubject/(double)numberOfStudents);
+                System.out.printf("average score in subject %d is %2f%n", subjectIndex+1, subjectAverage);
+            }
+        System.out.println();
+            findHardestSubject(subjectTotals, numberOfSubjects);
+
+    }
+
+    public static void findHardestSubject(int[] totalPerSubject, int numberOfSubjects){
+        int minimumTotalPerSubject = totalPerSubject[0];
+        int indexOfMinimumTotalPerSubject =0;
+        for (int subjectIndex = 0; subjectIndex < numberOfSubjects; subjectIndex++) {
+            if (totalPerSubject[subjectIndex]< minimumTotalPerSubject){
+                minimumTotalPerSubject = totalPerSubject[subjectIndex];
+                indexOfMinimumTotalPerSubject=subjectIndex;
+            }
+        }
+        System.out.printf("the hardest subject is subject %d", indexOfMinimumTotalPerSubject+1);
     }
 }
