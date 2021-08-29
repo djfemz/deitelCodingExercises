@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Student{
-
+  
     public static int[][] collectStudentGrades(int numberOfStudentsInClass, int numberOfSubjectsOffered) {   
         Scanner scanner = new Scanner(System.in);
         int[][] students = new int[numberOfStudentsInClass][numberOfSubjectsOffered];
@@ -107,6 +107,7 @@ public class Student{
     }
 
     public static void calculateHighestPerSubjectOf(int[][] studentGrades, int numberOfSubjectsOffered,int numberOfStudentsInClass) {
+        System.out.println();
         for (int m = 0; m < numberOfSubjectsOffered; m++) {
             int highestScorePerSubject = studentGrades[0][m];
             int indexOfMaximum=0;
@@ -119,4 +120,45 @@ public class Student{
             System.out.printf("student %d scored the highest in subject %d with a score of %d%n", indexOfMaximum+1,  m+1, highestScorePerSubject);
         }
     }  
+
+    public static void calculateLowestPerSubjectOf(int[][] studentGrades, int numberOfSubjectsOffered,int numberOfStudentsInClass) {
+        System.out.println();
+        for (int subjectIndex = 0; subjectIndex < numberOfSubjectsOffered; subjectIndex++) {
+            int lowestScorePerSubject = studentGrades[0][subjectIndex];
+            int indexOfMinimum=0;
+            for (int studentIndex=0; studentIndex < numberOfStudentsInClass; studentIndex++) {
+                if(studentGrades[studentIndex][subjectIndex]<lowestScorePerSubject){
+                    lowestScorePerSubject = studentGrades[studentIndex][subjectIndex];
+                    indexOfMinimum = studentIndex;
+                }
+            }
+            System.out.printf("student %d scored the lowest in subject %d with a score of %d%n", indexOfMinimum+1,  subjectIndex+1, lowestScorePerSubject);
+        }
+    } 
+    
+    public static void findOverallHighestScoringStudent(int[] reorderedTotalScores, int[] totalScores) {
+        System.out.println();
+        int indexOfOverallHighestScoringStudent =0;
+        for (int i = 0; i < totalScores.length; i++) {
+            if (reorderedTotalScores[0]==totalScores[i]) {
+                indexOfOverallHighestScoringStudent = i;
+            }
+        }
+        System.out.println("the overall highest scoring student is student" + " " + (indexOfOverallHighestScoringStudent+1));
+    }
+
+    public static void findOverallLowestScoringStudent(int[] reorderedTotalScores, int[] totalScores) {
+        System.out.println();
+        int indexOfOverallLowestScoringStudent =0;
+        for (int i = 0; i < totalScores.length; i++) {
+            if (reorderedTotalScores[reorderedTotalScores.length-1]==totalScores[i]) {
+                indexOfOverallLowestScoringStudent = i;
+            }
+        }
+        System.out.println("the overall lowest scoring student is student" + " " + (indexOfOverallLowestScoringStudent+1));
+    }
+
+    public static void calculateAveragePerSubjectOf(int[][] studentTotals) {
+        
+    }
 }

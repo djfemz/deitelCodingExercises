@@ -25,8 +25,14 @@ public class Main {
         
         Student.displayTable(numberOfSubjectsOffered, positions, studentGrades, totalSumOfStudentScores, studentAverages);
         
+        Student.findOverallHighestScoringStudent(reorderedTotalScores, totalSumOfStudentScores);
+
+
+        Student.findOverallLowestScoringStudent(reorderedTotalScores, totalSumOfStudentScores);
 
         Student.calculateHighestPerSubjectOf(studentGrades, numberOfSubjectsOffered, numberOfStudentsInClass);
+
+        Student.calculateLowestPerSubjectOf(studentGrades, numberOfSubjectsOffered, numberOfStudentsInClass);
 
     }
 }
