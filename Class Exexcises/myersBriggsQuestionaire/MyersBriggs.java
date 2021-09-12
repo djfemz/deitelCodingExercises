@@ -3,14 +3,14 @@ import java.util.*;
 public class MyersBriggs {
     Scanner scanner = new Scanner(System.in);
     private String[] questions = new String[20];
-    private String firstValidInput = "A";
-    private String secondValidInput = "B";
+    private static final String FIRST_VALID_INPUT = "A";
+    private static final String SECOND_VALID_INPUT = "B";
     private String[] answers = new String[20];
     private String[][] answersByCategory= new String[4][5];
     private static String[] grades = new String[4];
     private static String[] categories = new String[4];
 
-    public void getQuestions() {
+    public void saveQuestions() {
         String display = """
                             A.                                                                          B. 
                 1. expend energy                                                        conserve energy, enjoy one-on-one:
@@ -43,8 +43,8 @@ public class MyersBriggs {
             System.out.println(questions[questionNumber]);
             String answer = getAnswerFromUser().toUpperCase();
             
-             while(!answer.equalsIgnoreCase(firstValidInput) || !answer.equalsIgnoreCase(secondValidInput)){
-                if (answer.equals(firstValidInput) ||answer.equals(secondValidInput)){
+             while(!answer.equalsIgnoreCase(FIRST_VALID_INPUT) || !answer.equalsIgnoreCase(SECOND_VALID_INPUT)){
+                if (answer.equals(FIRST_VALID_INPUT) ||answer.equals(SECOND_VALID_INPUT)){
                     break;
                 }
                 System.out.println(questions[questionNumber]); 
@@ -86,7 +86,6 @@ public class MyersBriggs {
                 J - judging
                 P - perceiving
                 """;
-        System.out.println(key);
 
         int questionNumber =1;
         for (int counter = 0; counter < answersByCategory[0].length; counter++) {
@@ -100,9 +99,14 @@ public class MyersBriggs {
             System.out.printf("%s\t", grades[i]);
         }
         System.out.println();
+
+        System.out.println();
         for (int i = 0; i < categories.length; i++) {
             System.out.printf("%s\t", categories[i]);
         }
+        System.out.println();
+        drawHorizontalLine();
+        System.out.printf("%s%n%s", "Keys:", key);
         System.out.println();
     }
 
@@ -135,6 +139,10 @@ public class MyersBriggs {
         for (int i = 0; i < grades.length; i++) {
             iterateThroughGrades(i);
         }
+    }
+
+    public static void drawHorizontalLine() {
+        System.out.println("=".repeat(100));
     }
 
     public static void iterateThroughGrades(int i) {
