@@ -1,11 +1,16 @@
 import java.util.*;
 
 public class MyersBriggs {
+    Scanner scanner = new Scanner(System.in);
+    private String[] questions = new String[20];
+    private String firstValidInput = "A";
+    private String secondValidInput = "B";
     private String[] answers = new String[20];
     private String[][] answersByCategory= new String[4][5];
-    private String[] grade = new String[4];
+    private static String[] grades = new String[4];
+    private static String[] categories = new String[4];
 
-    public String[] getQuestions() {
+    public void getQuestions() {
         String display = """
                             A.                                                                          B. 
                 1. expend energy                                                        conserve energy, enjoy one-on-one:
@@ -29,21 +34,36 @@ public class MyersBriggs {
                 19. matter of fact, issue-oriented                                      sensitive, people-oriented, compassionate:
                 20. control, govern                                                     latitude, freedom
                 """;
-        return display.split(":", 20);
+        questions= display.split(":", 20);
     }
 
-    public String[] displayQuestionsToUser(String[] questions) {
-        Scanner scanner = new Scanner(System.in);
-        for (int questionNumber = 0; questionNumber < questions.length; questionNumber++) {
+
+    public void displayQuestionsToUser() {
+        for (int questionNumber = 0; questionNumber < questions.length; questionNumber++) {     
             System.out.println(questions[questionNumber]);
-            String userInput = scanner.nextLine();
-            answers[questionNumber] = userInput.toUpperCase();
-        }
-        scanner.close();
-        return answers;
+            String answer = getAnswerFromUser().toUpperCase();
+            
+             while(!answer.equalsIgnoreCase(firstValidInput) || !answer.equalsIgnoreCase(secondValidInput)){
+                if (answer.equals(firstValidInput) ||answer.equals(secondValidInput)){
+                    break;
+                }
+                System.out.println(questions[questionNumber]); 
+                answer = getAnswerFromUser().toUpperCase(); 
+            }
+            
+               saveAnswer(answer, questionNumber);
+        }  
     }
 
-    public String[][] divideIntoCategories(String[] answers){
+    public String getAnswerFromUser() {
+        return scanner.next();
+    }
+
+    public void saveAnswer(String answer, int questionNumber) {
+        answers[questionNumber] = answer.toUpperCase();
+    }
+
+    public void divideAnswersIntoCategories(){
         for (int category = 0; category < 4; category++) {
             int counter = 0;
             for (int answer = category; answer < answers.length; answer=answer+4) {
@@ -51,11 +71,11 @@ public class MyersBriggs {
                 counter++;
             }
         }
-        return answersByCategory;
+        analyseQuestionaireAnswers(answersByCategory);
     }
 
 
-    public void tabulateQuestionaire(String[][] answersByCategory, String[] grade){
+    public void tabulateQuestionaireAnswers(){
         String key = """
                 E - extrovert
                 I - introvert
@@ -76,41 +96,85 @@ public class MyersBriggs {
             }
             System.out.println();
         }
-        for (int i = 0; i < grade.length; i++) {
-            System.out.printf("%s\t", grade[i]);
+        for (int i = 0; i < grades.length; i++) {
+            System.out.printf("%s\t", grades[i]);
+        }
+        System.out.println();
+        for (int i = 0; i < categories.length; i++) {
+            System.out.printf("%s\t", categories[i]);
         }
         System.out.println();
     }
 
-    /**
-     * Go through each category and try to find out which option was chosen the most
-     * whichever option was chosen, rank accordinly
-     * 
-     *
-     * */
-    public String[] analyseQuestionaireAnswers(String[][] answersByCategory){
-        int numberOfOptionA;
-        int numberOfOptionB;
+    
+    public static void analyseQuestionaireAnswers(String[][] answersByCategory){
+        int counterForOptionA;
+        int counterForOptionB;
         int counter = 0;
         for (; counter < answersByCategory.length; counter++) {
-            numberOfOptionA=0;
-            numberOfOptionB=0;
-            for (int i = 0; i < answersByCategory[0].length; i++) {
-                if (answersByCategory[counter][i].equalsIgnoreCase("A")){
-                    numberOfOptionA++;
+            counterForOptionA = 0;
+            counterForOptionB = 0;
+            for (int option = 0; option < answersByCategory[0].length; option++) {
+                if (answersByCategory[counter][option].equalsIgnoreCase("A")) {
+                    counterForOptionA++;
                 }
-                if(answersByCategory[counter][i].equalsIgnoreCase("B")){
-                    numberOfOptionB++;
+                if (answersByCategory[counter][option].equalsIgnoreCase("B")) {
+                    counterForOptionB++;
                 }
             }
-            if (numberOfOptionA > numberOfOptionB) {
-                grade[counter] = "A";
+            if (counterForOptionA > counterForOptionB) {
+                grades[counter] = "A";
             }
-            if (numberOfOptionB > numberOfOptionA){
-                grade[counter] = "B";
+            if (counterForOptionB > counterForOptionA) {
+                grades[counter] = "B";
             }
-        }  
-        return grade;
+        }
+    }
+
+    public void setPersonalityTraitsBasedOnAnswers() {
+        for (int i = 0; i < grades.length; i++) {
+            iterateThroughGrades(i);
+        }
+    }
+
+    public static void iterateThroughGrades(int i) {
+        switch (i) {
+            case 0:
+                if (grades[i].equals("A")){
+                   categories[i] = "E";
+                   break;
+                }else {
+                    categories[i] = "I";
+                    break;
+                }
+            case 1:
+                if (grades[i].equals("A")){
+                    categories[i] = "S";
+                    break;
+                }else {
+                    categories[i] = "N";
+                    break;
+                }
+            case 2:
+                if (grades[i].equals("A")){
+                    categories[i] = "T";
+                    break;
+                }else {
+                    categories[i] = "F";
+                    break;
+                }
+            case 3:
+                if (grades[i].equals("A")){
+                    categories[i] = "J";
+                    break;
+                }else {
+                    categories[i] = "P";
+                    break;
+                }
+            default:
+                System.out.println("system failure");
+                break;        
+        }
     }
 }
 
