@@ -55,7 +55,7 @@ public class MyersBriggs {
         }  
     }
 
-    public String getAnswerFromUser() {
+    private String getAnswerFromUser() {
         return scanner.next();
     }
 
@@ -111,7 +111,7 @@ public class MyersBriggs {
     }
 
     
-    public static void analyseQuestionaireAnswers(String[][] answersByCategory){
+    private static void analyseQuestionaireAnswers(String[][] answersByCategory){
         int counterForOptionA;
         int counterForOptionB;
         int counter = 0;
@@ -141,11 +141,11 @@ public class MyersBriggs {
         }
     }
 
-    public static void drawHorizontalLine() {
+    private static void drawHorizontalLine() {
         System.out.println("=".repeat(100));
     }
 
-    public static void iterateThroughGrades(int i) {
+    private static void iterateThroughGrades(int i) {
         switch (i) {
             case 0:
                 if (grades[i].equals("A")){
