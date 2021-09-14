@@ -59,7 +59,7 @@ public class MyersBriggs {
         return scanner.next();
     }
 
-    public void saveAnswer(String answer, int questionNumber) {
+    private void saveAnswer(String answer, int questionNumber) {
         answers[questionNumber] = answer.toUpperCase();
     }
 
