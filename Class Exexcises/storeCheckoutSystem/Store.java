@@ -3,7 +3,7 @@ import java.math.*;
 
 public class Store {
     Scanner scanner = new Scanner(System.in);
-    private static final String storeName = "kataStore";
+    private static final String storeName = "Phoenix Stores";
     private ArrayList<Item> checkoutCart = new ArrayList<Item>();
     private final BigDecimal discountRate= BigDecimal.valueOf(0.05);
     private BigDecimal discount = BigDecimal.ZERO;
@@ -19,6 +19,9 @@ public class Store {
     public void addItemToCheckoutCart() {
         String response ="";
         do {
+            if (response.equals("no")){
+                break;
+            }
             try {
                 System.out.println("what did the customer buy?");
                 String itemName = scanner.next();
@@ -33,7 +36,7 @@ public class Store {
                 scanner.nextLine();
             }
             
-        } while (!response.equalsIgnoreCase("no"));
+        } while (response.equalsIgnoreCase("yes"));
             
     }
 
