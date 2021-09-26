@@ -1,7 +1,5 @@
 package semicolon.africa;
 
-
-import java.time.Duration;
 import java.util.ArrayList;
 
 public class Mp3Player {
@@ -11,7 +9,6 @@ public class Mp3Player {
     private Music currentSong;
     private final ArrayList<Playlist> playlists = new ArrayList<>();
     private int volume;
-    private final Duration START_SONG_FROM = Duration.ZERO;
 
     public Mp3Player(){
         Playlist defaultPlaylist = new Playlist("default playlist");
@@ -36,7 +33,7 @@ public class Mp3Player {
         return currentSong;
     }
 
-    public ArrayList<Playlist> playlists() {
+    public ArrayList<Playlist> getPlaylists() {
         return playlists;
     }
 
@@ -83,5 +80,13 @@ public class Mp3Player {
         int indexOfCurrentSong=songs.indexOf(currentSong);
         Music nextTrack = songs.get(indexOfCurrentSong+1);
         play(nextTrack);
+    }
+
+    public void previous(){
+        Playlist playlist = getPlaylist("default playlist");
+        ArrayList<Music> songs = playlist.getSongs();
+        int indexOfCurrentSong=songs.indexOf(currentSong);
+        Music previousTrack = songs.get(indexOfCurrentSong-1);
+        play(previousTrack);
     }
 }
