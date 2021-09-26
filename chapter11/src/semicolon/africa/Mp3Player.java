@@ -1,5 +1,6 @@
 package semicolon.africa;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 
 public class Mp3Player {
@@ -88,5 +89,21 @@ public class Mp3Player {
         int indexOfCurrentSong=songs.indexOf(currentSong);
         Music previousTrack = songs.get(indexOfCurrentSong-1);
         play(previousTrack);
+    }
+
+    public void shuffle() {
+        Playlist playlist = getPlaylist("default playlist");
+        ArrayList<Music> songs = playlist.getSongs();
+        SecureRandom random = new SecureRandom();
+        int randomIndex = random.nextInt(songs.size());
+        Music track = songs.get(randomIndex);
+        play(track);
+    }
+
+
+    public Playlist createPlaylist(String name) {
+        Playlist playlist = new Playlist(name);
+        playlists.add(playlist);
+        return playlist;
     }
 }

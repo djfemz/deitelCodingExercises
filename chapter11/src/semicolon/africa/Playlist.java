@@ -22,10 +22,6 @@ public class Playlist {
       return name;
    }
 
-   public int contains(Music music){
-      return musics.indexOf(music);
-   }
-
    @Override
    public String toString() {
       String stringToReturn = "";

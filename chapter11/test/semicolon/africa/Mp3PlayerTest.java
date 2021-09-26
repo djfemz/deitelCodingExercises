@@ -120,4 +120,32 @@ class Mp3PlayerTest {
         myMp3.previous();
         assertEquals(newSong, myMp3.currentSong());
     }
+
+    @Test
+    void testThatMp3PlayerCanPlayMusicAtRandom() {
+        Music newSong = new Music("ye", 1, Duration.ofSeconds(60));
+        Music newSongOne = new Music("hey boy", 2, Duration.ofSeconds(60));
+        Music newSongTwo = new Music("booty call", 3, Duration.ofSeconds(60));
+        Playlist defaultPlaylist = myMp3.getPlaylist("default playlist");
+        defaultPlaylist.addToPlaylist(newSong);
+        defaultPlaylist.addToPlaylist(newSongOne);
+        defaultPlaylist.addToPlaylist(newSongTwo);
+        myMp3.shuffle();
+        System.out.println(myMp3.currentSong());
+        assertNotEquals(newSong, myMp3.currentSong());
+    }
+
+    @Test
+    void testThatMp3PlayerCanAddMusicToPlaylists() {
+        Music newSong = new Music("ye", 1, Duration.ofSeconds(60));
+        Music newSongOne = new Music("hey boy", 2, Duration.ofSeconds(60));
+        Music newSongTwo = new Music("booty call", 3, Duration.ofSeconds(60));
+        Playlist myPlaylist = myMp3.createPlaylist("my playlist");
+
+        myPlaylist.addToPlaylist(newSong);
+        myPlaylist.addToPlaylist(newSongOne);
+        myPlaylist.addToPlaylist(newSongTwo);
+        System.out.println(myPlaylist);
+        assertEquals(myPlaylist, myMp3.getPlaylist("my playlist"));
+    }
 }
