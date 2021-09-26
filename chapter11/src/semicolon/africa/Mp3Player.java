@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Mp3Player {
 
     private boolean isOn;
+    private boolean isPlaying;
     private Music currentSong;
     private final ArrayList<Playlist> playlists = new ArrayList<>();
     private int volume;
@@ -27,7 +28,8 @@ public class Mp3Player {
     }
 
     public void play(Music song) {
-        currentSong=song;
+            isPlaying = true;
+            currentSong=song;
     }
 
     public Music currentSong(){
@@ -55,9 +57,9 @@ public class Mp3Player {
         }
     }
 
-    public Playlist getPlaylist(Playlist givenPlaylist){
+    public Playlist getPlaylist(String playlistName){
         for (Playlist playlist: playlists) {
-            if (playlist.equals(givenPlaylist)){
+            if (playlistName.equalsIgnoreCase(playlist.name())){
                 return playlist;
             }
         }
@@ -65,4 +67,21 @@ public class Mp3Player {
     }
 
 
+    public void pause() {
+        if(isPlaying){
+            isPlaying = false;
+        }
+    }
+
+    public boolean isPlaying() {
+        return isPlaying;
+    }
+
+    public void next() {
+        Playlist playlist=getPlaylist("default playlist");
+        ArrayList<Music> songs = playlist.getSongs();
+        int indexOfCurrentSong=songs.indexOf(currentSong);
+        Music nextTrack = songs.get(indexOfCurrentSong+1);
+        play(nextTrack);
+    }
 }

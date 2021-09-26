@@ -16,10 +16,14 @@ public class Music {
     @Override
     public String toString() {
         String returnString = "";
-        return returnString + name + trackId;
+        return returnString + name + " " + trackId;
     }
 
     public Duration songDuration() {
         return length;
+    }
+
+    public int trackId(){
+        return trackId;
     }
 }

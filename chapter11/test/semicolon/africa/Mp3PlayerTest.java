@@ -25,7 +25,6 @@ class Mp3PlayerTest {
 
     @Test
     void testThatMp3PlayerCanBeTurnedOff() {
-        //when
         myMp3.power();
         assertFalse(myMp3.isOn());
     }
@@ -85,5 +84,28 @@ class Mp3PlayerTest {
         myMp3.volumeDown();
         myMp3.volumeDown();
         assertEquals(0, myMp3.volume());
+    }
+
+    @Test
+    void testThatMp3PlayerCanPauseMusic() {
+        Music newSong = new Music("ye", 1, Duration.ofSeconds(60));
+        myMp3.play(newSong);
+        myMp3.pause();
+        assertFalse(myMp3.isPlaying());
+    }
+
+    @Test
+    void testThatMp3PlayerCanPlayNextMusic() {
+        Music newSong = new Music("ye", 1, Duration.ofSeconds(60));
+        Music newSongOne = new Music("hey boy", 2, Duration.ofSeconds(60));
+        Music newSongTwo = new Music("booty call", 3, Duration.ofSeconds(60));
+        Playlist defaultPlaylist = myMp3.getPlaylist("default playlist");
+        defaultPlaylist.addToPlaylist(newSong);
+        defaultPlaylist.addToPlaylist(newSongOne);
+        defaultPlaylist.addToPlaylist(newSongTwo);
+        myMp3.play(newSong);
+        myMp3.next();
+        myMp3.next();
+        assertEquals(newSongTwo, myMp3.currentSong());
     }
 }

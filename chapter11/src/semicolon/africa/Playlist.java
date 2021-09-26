@@ -13,4 +13,27 @@ public class Playlist {
    public void addToPlaylist(Music music){
       musics.add(music);
    }
+
+   public ArrayList<Music> getSongs(){
+      return musics;
+   }
+
+   public String name(){
+      return name;
+   }
+
+   public int contains(Music music){
+      return musics.indexOf(music);
+   }
+
+   @Override
+   public String toString() {
+      String stringToReturn = "";
+      for (Music song: musics){
+         stringToReturn= stringToReturn + song + "\n";
+      }
+      return name + "\n" + stringToReturn;
+   }
+
+
 }
