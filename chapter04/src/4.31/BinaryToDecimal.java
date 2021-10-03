@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class BinaryToDecimal {
     public static void main(String[] args) {
-
         double divisor = 10;
         int sum = 0;
         double singleBinaryDigit;

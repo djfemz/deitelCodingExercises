@@ -19,7 +19,7 @@ public class Palindrome {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter a five digit integer: ");
         userInput= input.nextInt();
-       userInputAsAString=String.valueOf(userInput);
+        userInputAsAString=String.valueOf(userInput);
 
        while (userInputAsAString.length()!=5) {
         System.out.println("Integer is invalid");   
