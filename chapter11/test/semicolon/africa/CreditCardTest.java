@@ -6,11 +6,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CreditCardTest {
-    private CreditCard creditCard;
     Long cardNumber;
     @BeforeEach
     void setUp() {
-         creditCard= new CreditCard();
          cardNumber= Long.parseLong("4738857601840626");
     }
 
@@ -36,7 +34,7 @@ class CreditCardTest {
 
     @Test
     void creditCardValidation() {
-        creditCard.validate(cardNumber);
-        assertTrue(creditCard.isValid());
+        CreditCard.validate(cardNumber);
+        assertTrue(CreditCard.isValid());
     }
 }

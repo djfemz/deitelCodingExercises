@@ -15,9 +15,9 @@ public class CreditCard {
 
     private static boolean validateCreditCardType(Long cardNumber) {
         String creditCardStringValue= String.valueOf(cardNumber);
-        int valueAtFirstposition= creditCardStringValue.charAt(0);
-        int valueAtSecondposition= creditCardStringValue.charAt(1);
-        return valueAtFirstposition == '3' && valueAtSecondposition == '7' || valueAtFirstposition == '4' || valueAtFirstposition == '5' || valueAtFirstposition == '6';
+        int creditCardNumbersFirstDigit= creditCardStringValue.charAt(0);
+        int creditCardNumbersSecondDigit= creditCardStringValue.charAt(1);
+        return creditCardNumbersFirstDigit == '3' && creditCardNumbersSecondDigit == '7' || creditCardNumbersFirstDigit == '4' || creditCardNumbersFirstDigit == '5' || creditCardNumbersFirstDigit == '6';
     }
 
 
@@ -26,7 +26,7 @@ public class CreditCard {
         int cardNumberLength = cardNumber.toString().length();
         for (int count = cardNumberLength-2; count >=0; count=count-2) {
            int number= Character.getNumericValue(cardNumber.toString().charAt(count));
-            int numberOne=getDigit(number*2);
+           int numberOne=getDigit(number*2);
             total +=numberOne;
         }
         return total;
